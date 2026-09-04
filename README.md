@@ -44,9 +44,9 @@ Data Collection → Data Cleaning → Stationarity Testing → Seasonal Decompos
 
 | Model | MAE | RMSE | MAPE (%) |
 |---|---|---|---|
-| Holt-Winters | 71.07 | 105.79 | 69.47 |
+| Holt-Winters | 70.55 | 105.36 | 68.68 |
 | SARIMA (m=30) | 52.06 | 86.58 | 56.64 |
-| **LSTM** | **23.41** | **38.75** | **30.46** |
+| **LSTM** | **23.50** | **38.91** | **29.04** |
 
 **Interpretation**: LSTM outperformed both statistical models by a significant margin, achieving ~55% lower MAE and ~55% lower RMSE than SARIMA. The deep learning model's ability to learn non-linear patterns from sequential windows gave it a clear advantage on this high-variance dataset. SARIMA performed moderately well, while Holt-Winters struggled with the long-horizon forecast due to its reliance on local smoothing.
 
@@ -54,7 +54,7 @@ Data Collection → Data Cleaning → Stationarity Testing → Seasonal Decompos
 
 ## 🔍 Key Findings
 
-- **LSTM delivered the best performance** across all three metrics (MAE: 23.41, RMSE: 38.75, MAPE: 30.46%), confirming that neural sequence models handle volatile environmental data well.
+- **LSTM delivered the best performance** across all three metrics (MAE: 23.50, RMSE: 38.91, MAPE: 29.04%), confirming that neural sequence models handle volatile environmental data well.
 - **Delhi's PM2.5 shows strong annual seasonality** — pollution peaks sharply during winter months (October–January) driven by crop stubble burning, low wind speeds, and temperature inversions.
 - **Statistical stationarity ≠ visual stationarity** — the ADF test returned p = 0.0015, yet the series exhibited clear non-stationary behavior visually, reinforcing the need for seasonal differencing in SARIMA.
 - **Holt-Winters is insufficient for long-horizon air quality forecasting** — its weekly seasonality assumption fails to capture the annual cycle, leading to the highest error rates.
